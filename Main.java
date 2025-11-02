@@ -5,45 +5,51 @@ import java.util.HashSet;
 
 public class Main {
     public static void main(String[] args) {
-    String[] fruits = {
-    "apple", "banana", "cherry", "grape", "mango",
-    "orange", "peach", "plum", "kiwi", "melon"
-};
-String[] animals = {
-    "elephant", "giraffe", "tiger", "lion", "zebra",
-    "wolf", "panda", "rabbit", "fox", "monkey"
-};
-String[] countries = {
-    "canada", "brazil", "france", "poland", "japan",
-    "spain", "italy", "egypt", "india", "mexico"
-};
-String[] sports = {
-    "soccer", "tennis", "hockey", "boxing", "golf",
-    "cricket", "volleyball", "rugby", "cycling", "skiing"
-};
-String[] objects = {
-    "window", "laptop", "camera", "guitar", "bottle",
-    "pencil", "notebook", "marker", "wallet", "backpack"
-};
-String[] colors = {
-    "purple", "orange", "yellow", "silver", "gold",
-    "violet", "beige", "brown", "pink", "black"
-};
-String[] food = {
-    "pizza", "pasta", "sushi", "burger", "cookie",
-    "waffle", "salad", "tacos", "noodles", "steak"
-};
-String[] nature = {
-    "forest", "mountain", "ocean", "desert", "river",
-    "island", "valley", "canyon", "meadow", "waterfall"
-};
-String [][] themes = { animals, food, countries, colors, objects, nature, sports, fruits };
-String [] themeNames ={ "animals" , "food", "countries", "colors", "objects", "nature", "sports", "fruits" };
+    String[] easyFruits = {"apple", "kiwi", "plum", "pear", "lime"};
+String[] easyAnimals = {"lion", "wolf", "bear", "duck", "frog"};
+String[] easyCountries = {"peru", "laos", "iraq", "cuba", "mali"};
+String[] easySports = {"golf", "ski", "judo", "rugby", "swim"};
+String[] easyObjects = {"book", "pen", "cup", "lamp", "key"};
+String[] easyColors = {"red", "blue", "pink", "gold", "teal"};
+String[] easyFood = {"rice", "cake", "fish", "bread", "milk"};
+String[] easyNature = {"hill", "tree", "lake", "rain", "sand"};
+String[] mediumFruits = {"banana", "orange", "mango", "papaya", "cherry"};
+String[] mediumAnimals = {"rabbit", "giraffe", "penguin", "dolphin", "kangaroo"};
+String[] mediumCountries = {"canada", "france", "brazil", "spain", "poland"};
+String[] mediumSports = {"soccer", "tennis", "hockey", "boxing", "cricket"};
+String[] mediumObjects = {"camera", "laptop", "guitar", "bottle", "wallet"};
+String[] mediumColors = {"purple", "orange", "yellow", "silver", "violet"};
+String[] mediumFood = {"pizza", "pasta", "sushi", "burger", "waffle"};
+String[] mediumNature = {"forest", "desert", "river", "island", "valley"};
+String[] hardFruits = {"pineapple", "strawberry", "blueberry", "blackberry", "pomegranate"};
+String[] hardAnimals = {"elephant", "alligator", "chimpanzee", "kangaroo", "crocodile"};
+String[] hardCountries = {"argentina", "australia", "venezuela", "thailand", "philippines"};
+String[] hardSports = {"basketball", "volleyball", "snowboarding", "badminton", "weightlifting"};
+String[] hardObjects = {"microphone", "notebook", "backpack", "binoculars", "headphones"};
+String[] hardColors = {"turquoise", "magenta", "maroon", "lavender", "chartreuse"};
+String[] hardFood = {"chocolate", "lasagna", "croissant", "spaghetti", "hamburger"};
+String[] hardNature = {"waterfall", "mountain", "meadow", "canyon", "rainforest"};
+String[] extremeFruits = {"cranberry", "persimmon", "pomegranate", "blackcurrant", "dragonfruit"};
+String[] extremeAnimals = {"chimpanzee", "hippopotamus", "rhinoceros", "orangutan", "crocodilian"};
+String[] extremeCountries = {"turkmenistan", "liechtenstein", "papua new guinea", "kazakhstan", "madagascar"};
+String[] extremeSports = {"synchronizedswimming", "extremecycling", "snowboarding", "weightlifting", "skydiving"};
+String[] extremeObjects = {"thermometer", "microscope", "stereoscope", "refrigerator", "telescope"};
+String[] extremeColors = {"chartreuse", "ultramarine", "cerulean", "vermillion", "indigo"};
+String[] extremeFood = {"bouillabaisse", "ratatouille", "carbonara", "sauerbraten", "ceviche"};
+String[] extremeNature = {"photosynthesis", "glaciation", "thermodynamics", "geosynchronous", "electromagnetic"};
+String[][] easyThemes = {easyFruits, easyAnimals, easyCountries, easySports, easyObjects, easyColors, easyFood, easyNature};
+String[][] mediumThemes = {mediumFruits, mediumAnimals, mediumCountries, mediumSports, mediumObjects, mediumColors, mediumFood, mediumNature};
+String[][] hardThemes = {hardFruits, hardAnimals, hardCountries, hardSports, hardObjects, hardColors, hardFood, hardNature};
+String[][] extremeThemes = {extremeFruits, extremeAnimals, extremeCountries, extremeSports, extremeObjects, extremeColors, extremeFood, extremeNature};
+String[][][] themes = {easyThemes, mediumThemes, hardThemes, extremeThemes };
+String[] themeNames = {"Fruits","Animals","Countries","Sports","Objects","Colors","Food","Nature"};
         Random random = new Random();
-        int themeIndex = random.nextInt(themes.length);
-        String[] chosenTheme = themes[themeIndex];
-        String chosenThemeName = themeNames[themeIndex];
-        String word = chosenTheme[random.nextInt(chosenTheme.length)];
+        int difficultyIndex = random.nextInt(themes.length);
+        String[][] chosenTheme = themes[difficultyIndex];
+        int categoryIndex = random.nextInt(chosenTheme.length);
+        String chosenThemeName = themeNames[categoryIndex];
+        String[] chosenCategory = chosenTheme[categoryIndex];
+        String word = chosenCategory[random.nextInt(chosenCategory.length)];
         char[] revealed = new char[word.length()];
         for( int i = 0; i < word.length(); i++) {
             char c = word.charAt(i);
