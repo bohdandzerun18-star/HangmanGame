@@ -52,18 +52,17 @@ String [] themeNames ={ "animals" , "food", "countries", "colors", "objects", "n
         System.out.println("Welcome to Hangman!");
             System.out.println("===================");
             System.out.println("Try to guess the word!");
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Choose the difficulty: ");
         System.out.println("1 - Easy");
         System.out.println("2 - Medium");
         System.out.println("3 - Hard");
         System.out.println("4 - Extreme");
+        Scanner scanner = new Scanner(System.in);
         int difficulty = scanner.nextInt();
-        Set<Character> guessed = new HashSet<>();
         int maxAttempts;
         switch (difficulty) {
             case 1:
-                maxAttempts = 10;
+                maxAttempts = 8;
                 break;
             case 2:
             maxAttempts = 6;
@@ -73,12 +72,14 @@ String [] themeNames ={ "animals" , "food", "countries", "colors", "objects", "n
                 break;
                 case 4:
                 maxAttempts = 3;
+                break;
                 default:
                 maxAttempts = 6;
                 break;
         }
-        scanner.nextLine();
+        Set<Character> guessed = new HashSet<>();
         int attemptsLeft = maxAttempts;
+        scanner.nextLine();
         while (attemptsLeft > 0) {
             System.out.println("Theme is: " +chosenThemeName);
             System.out.println("Word: " + String.valueOf(revealed));
